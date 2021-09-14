@@ -44,9 +44,7 @@ void	ft_hex(int x)
 	}
 	while (here > 0)
 	{
-		int i;
-		i = save[here-1];
-		ft_putchar(hex[i]);
+		ft_putchar(hex[save[here-1]]);
 		here--;
 	}
 	
