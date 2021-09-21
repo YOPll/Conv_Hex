@@ -1,9 +1,11 @@
 #include <unistd.h>
 #include <stdio.h>
+
 void	ft_putchar(char c)
 {
 	write(1, &c, 1);
 }
+
 int	ft_atoi(char *p)
 {
 	int i = 0;
@@ -28,6 +30,7 @@ int	ft_atoi(char *p)
 	return (res * sign);
 
 }
+
 void	ft_hex(int x)
 {
 	if (x == 0)
@@ -47,7 +50,6 @@ void	ft_hex(int x)
 		ft_putchar(hex[save[here-1]]);
 		here--;
 	}
-	
 }
 
 int	main(int ac, char **av)
@@ -55,6 +57,7 @@ int	main(int ac, char **av)
 	if (ac == 2)
 	{
 		int i;
+		
 		i = ft_atoi(av[1]);
 		ft_hex(i);
 	}
