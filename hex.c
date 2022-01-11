@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   hex.c                                              :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: yopi <yopi@student.42.fr>                  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/01/11 01:25:30 by yopi              #+#    #+#             */
+/*   Updated: 2022/01/11 01:35:18 by yopi             ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <unistd.h>
 #include <stdio.h>
 #include <string.h>
@@ -7,6 +19,7 @@ void	ft_putchar(char c)
 {
 	write(1, &c, 1);
 }
+
 void	ft_putstr(char *str)
 {
 	int	i;
@@ -49,12 +62,14 @@ void	ft_dec(char *str)
 
 void	ft_hex(int x)
 {
+	char	*hex;
+	int		save[10];
+	int		here;
+
+	hex = "0123456789ABCDEF";
+	here = 0;
 	if (x == 0)
 		ft_putchar('0');
-	char hex[16] = "0123456789ABCDEF";
-	int save[10];
-	int here = 0;
-
 	while (x)
 	{
 		save[here] = (x % 16);
@@ -64,7 +79,7 @@ void	ft_hex(int x)
 	ft_putstr("Hex Value is ");
 	while (here > 0)
 	{
-		ft_putchar(hex[save[here-1]]);
+		ft_putchar(hex[save[here - 1]]);
 		here--;
 	}
 }
@@ -73,9 +88,9 @@ int	main(void)
 {
 	char	hex[1000];
 	int		choice;
-	int 	dec;
-	
-    printf("For Decimal to HEX Type: 1\n");
+	int		dec;
+
+	printf("For Decimal to HEX Type: 1\n");
 	printf("For HEX to Decimal Type: 2\n");
 	scanf("%d", &choice);
 	if (choice == 1)
@@ -84,7 +99,7 @@ int	main(void)
 		scanf("%d", &dec);
 		ft_hex(dec);
 	}
-	else if(choice == 2)
+	else if (choice == 2)
 	{
 		printf("Please! Enter the HEX value :");
 		scanf("%s", hex);
@@ -92,6 +107,5 @@ int	main(void)
 	}
 	else
 		printf("404 try again");
-
 	ft_putchar('\n');
 }
